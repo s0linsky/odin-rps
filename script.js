@@ -9,14 +9,59 @@ function getComputerChoice() {
   let randomInt = getRandomInt(3);
 
   if (randomInt === 1) {
-    console.log("Rock");
+    return "Rock";
   } else if (randomInt === 2) {
-    console.log("Paper");
+    return "Paper";
   } else if (randomInt === 3) {
-    console.log("Scissors");
+    return "Scissors";
   } else {
     console.log("Something went wrong..");
   }
 }
 
-getComputerChoice();
+function playRound(playerChoice, cpuChoice) {
+  let userChoice = playerChoice;
+  let computerChoice = cpuChoice;
+  let result = "";
+
+  if (userChoice == "Rock" && cpuChoice == "Scissors") {
+    result = "Rock beats Scissors, player wins!";
+    console.log(userChoice + " user choice");
+    console.log(computerChoice + " computer choice");
+    return result;
+  } else if (userChoice == "Scissors" && cpuChoice == "Paper") {
+    result = "Scissors beats Paper, player wins!";
+    console.log(userChoice + " user choice");
+    console.log(computerChoice + " computer choice");
+    return result;
+  } else if (userChoice == "Paper" && cpuChoice == "Rock") {
+    result = "Paper beats Rock, player wins!";
+    console.log(userChoice + " user choice");
+    console.log(computerChoice + " computer choice");
+    return result;
+  } else if (cpuChoice == "Rock" && userChoice == "Scissors") {
+    result = ("Rock beats Scissors.. CPU wins.");
+    console.log(computerChoice + " computer choice");
+    console.log(userChoice + " user choice");
+    return result;
+  } else if (cpuChoice == "Scissors" && userChoice == "Paper") {
+    result = ("Scissors beats Paper.. CPU wins.");
+    console.log(computerChoice + " computer choice");
+    console.log(userChoice + " user choice");
+    return result;
+  } else if (cpuChoice == "Paper" && userChoice == "Rock") {
+    result = ("Paper beats Rock.. CPU wins.");
+    console.log(computerChoice + " computer choice");
+    console.log(userChoice + " user choice");
+    return result;
+  } else if (userChoice == cpuChoice) {
+    result = ("Draw! Please play again.");
+    return result;
+  } else {
+    result = ("Something went wrong..");
+    return result;
+  }
+}
+
+console.log(playRound("Rock", getComputerChoice()));
+
