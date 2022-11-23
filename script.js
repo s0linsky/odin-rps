@@ -19,6 +19,8 @@ function getComputerChoice() {
   }
 }
 
+// Play a single round between the players choice and the computers choice
+// Return the results of the round
 function playRound(playerChoice, cpuChoice) {
   let userChoice = playerChoice;
   let computerChoice = cpuChoice;
