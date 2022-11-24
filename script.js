@@ -21,31 +21,28 @@ function getComputerChoice() {
 
 // Play a single round between the players choice and the computers choice
 // Return the results of the round
-function playRound(playerChoice, cpuChoice) {
-  let userChoice = playerChoice;
-  let computerChoice = cpuChoice;
-  let result = "";
-
+function playRound(cpuChoice) {
+  let userChoice = prompt("Rock, Paper or Scissors?");
   if (userChoice == "Rock" && cpuChoice == "Scissors") {
     result = "Rock beats Scissors, player wins!";
-    return result;
-  } else if (userChoice == "Scissors" && cpuChoice == "Paper") {
-    result = "Scissors beats Paper, player wins!";
     return result;
   } else if (userChoice == "Paper" && cpuChoice == "Rock") {
     result = "Paper beats Rock, player wins!";
     return result;
+  } else if (userChoice == "Scissors" && cpuChoice == "Paper") {
+    result = "Scissors beats Paper, player wins!";
+    return result;
   } else if (cpuChoice == "Rock" && userChoice == "Scissors") {
     result = "Rock beats Scissors.. CPU wins.";
-    return result;
-  } else if (cpuChoice == "Scissors" && userChoice == "Paper") {
-    result = "Scissors beats Paper.. CPU wins.";
     return result;
   } else if (cpuChoice == "Paper" && userChoice == "Rock") {
     result = "Paper beats Rock.. CPU wins.";
     return result;
+  } else if (cpuChoice == "Scissors" && userChoice == "Paper") {
+    result = "Scissors beats Paper.. CPU wins.";
+    return result;
   } else if (userChoice == cpuChoice) {
-    result = "Draw! Please play again.";
+    result = "Draw!";
     return result;
   } else {
     result = "Something went wrong..";
@@ -54,10 +51,10 @@ function playRound(playerChoice, cpuChoice) {
 }
 
 function game() {
-  for (let i = 0; i < 6; i++) {
-    let result = playRound("Rock", getComputerChoice());
-    return result;
+  for (let i = 0; i < 5; i++) {
+    result = playRound(getComputerChoice());
+    console.log(result);
   }
 }
 
-console.log(game());
+game();
