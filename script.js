@@ -28,42 +28,36 @@ function playRound(playerChoice, cpuChoice) {
 
   if (userChoice == "Rock" && cpuChoice == "Scissors") {
     result = "Rock beats Scissors, player wins!";
-    console.log(userChoice + " user choice");
-    console.log(computerChoice + " computer choice");
     return result;
   } else if (userChoice == "Scissors" && cpuChoice == "Paper") {
     result = "Scissors beats Paper, player wins!";
-    console.log(userChoice + " user choice");
-    console.log(computerChoice + " computer choice");
     return result;
   } else if (userChoice == "Paper" && cpuChoice == "Rock") {
     result = "Paper beats Rock, player wins!";
-    console.log(userChoice + " user choice");
-    console.log(computerChoice + " computer choice");
     return result;
   } else if (cpuChoice == "Rock" && userChoice == "Scissors") {
-    result = ("Rock beats Scissors.. CPU wins.");
-    console.log(computerChoice + " computer choice");
-    console.log(userChoice + " user choice");
+    result = "Rock beats Scissors.. CPU wins.";
     return result;
   } else if (cpuChoice == "Scissors" && userChoice == "Paper") {
-    result = ("Scissors beats Paper.. CPU wins.");
-    console.log(computerChoice + " computer choice");
-    console.log(userChoice + " user choice");
+    result = "Scissors beats Paper.. CPU wins.";
     return result;
   } else if (cpuChoice == "Paper" && userChoice == "Rock") {
-    result = ("Paper beats Rock.. CPU wins.");
-    console.log(computerChoice + " computer choice");
-    console.log(userChoice + " user choice");
+    result = "Paper beats Rock.. CPU wins.";
     return result;
   } else if (userChoice == cpuChoice) {
-    result = ("Draw! Please play again.");
+    result = "Draw! Please play again.";
     return result;
   } else {
-    result = ("Something went wrong..");
+    result = "Something went wrong..";
     return result;
   }
 }
 
-console.log(playRound("Rock", getComputerChoice()));
+function game() {
+  for (let i = 0; i < 6; i++) {
+    let result = playRound("Rock", getComputerChoice());
+    return result;
+  }
+}
 
+console.log(game());
