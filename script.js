@@ -23,26 +23,28 @@ function getComputerChoice() {
 // Return the results of the round
 function playRound(cpuChoice) {
   let userChoice = prompt("Rock, Paper or Scissors?");
+  const userChoiceCap =
+    userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
 
-  if (userChoice == "Rock" && cpuChoice == "Scissors") {
+  if (userChoiceCap == "Rock" && cpuChoice == "Scissors") {
     result = "Rock beats Scissors, player wins the round!";
     return result;
-  } else if (userChoice == "Paper" && cpuChoice == "Rock") {
+  } else if (userChoiceCap == "Paper" && cpuChoice == "Rock") {
     result = "Paper beats Rock, player wins the round!";
     return result;
-  } else if (userChoice == "Scissors" && cpuChoice == "Paper") {
+  } else if (userChoiceCap == "Scissors" && cpuChoice == "Paper") {
     result = "Scissors beats Paper, player wins the round!";
     return result;
-  } else if (cpuChoice == "Rock" && userChoice == "Scissors") {
+  } else if (cpuChoice == "Rock" && userChoiceCap == "Scissors") {
     result = "Rock beats Scissors.. CPU wins the round.";
     return result;
-  } else if (cpuChoice == "Paper" && userChoice == "Rock") {
+  } else if (cpuChoice == "Paper" && userChoiceCap == "Rock") {
     result = "Paper beats Rock.. CPU wins the round.";
     return result;
-  } else if (cpuChoice == "Scissors" && userChoice == "Paper") {
+  } else if (cpuChoice == "Scissors" && userChoiceCap == "Paper") {
     result = "Scissors beats Paper.. CPU wins the round.";
     return result;
-  } else if (userChoice == cpuChoice) {
+  } else if (userChoiceCap == cpuChoice) {
     result = "Draw!";
     return result;
   } else {
