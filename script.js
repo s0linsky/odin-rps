@@ -34,12 +34,19 @@ choices.appendChild(scissors);
 // Append choices to container
 container.appendChild(choices);
 
-// const buttons = document.querySelectorAll("button");
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     alert("Clicked!");
-//   });
-// });
+// Create button click event handler
+let selection;
+const buttons = document.querySelectorAll("button");
+function btnHandler(e) {
+  selection = e.target.id;
+  // console.log(selection);
+  game();
+}
+
+// Create event listener
+buttons.forEach((button) => {
+  button.addEventListener("click", btnHandler);
+});
 
 // A function that returns an integer between the minimum of 1 and the defined maximum
 function getComputerChoice() {
@@ -65,14 +72,7 @@ function getComputerChoice() {
 // Play a single round between the player's choice and the computer's choice
 // Return the results of the round
 function playRound(cpuChoice) {
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      console.log(button.id);
-    });
-  });
-
-  let userChoice = 
+  let userChoice = selection;
   const userChoiceCap =
     userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
 
@@ -107,43 +107,43 @@ function playRound(cpuChoice) {
 // If there is a draw, move on to the next round
 // After each round, log the winner of the round
 // After all rounds are complete, log the winner of the games
-// function game() {
-//   let playerScore = 0;
-//   let cpuScore = 0;
-//   let drawCount = 0;
+function game() {
+  let playerScore = 0;
+  let cpuScore = 0;
+  let drawCount = 0;
+  
+  result = playRound(getComputerChoice());
+  console.log(result);
+  if (result.includes("player wins")) {
+    playerScore++;
+  } else if (result.includes("CPU wins")) {
+    cpuScore++;
+  } else if (result.includes("Draw")) {
+    drawCount++;
+  }
 
-//   result = playRound(getComputerChoice());
-//   console.log(result);
-//   if (result.includes("player wins")) {
-//     playerScore++;
-//   } else if (result.includes("CPU wins")) {
-//     cpuScore++;
-//   } else if (result.includes("Draw")) {
-//     drawCount++;
-//   }
+  if (playerScore > cpuScore) {
+    console.log(
+      "CPU Score: " + cpuScore + " || " + "Player Score: " + playerScore
+    );
+    console.log("Player Wins The Game!");
+  } else if (cpuScore > playerScore) {
+    console.log(
+      "Player Score: " + playerScore + " || " + "CPU Score: " + cpuScore
+    );
+    console.log("CPU Wins The Game.");
+  } else if (playerScore >= 1 && playerScore === cpuScore) {
+    console.log(
+      "Player Score: " +
+        playerScore +
+        " || " +
+        "CPU Score: " +
+        cpuScore +
+        " ||  Number of Draws: " +
+        drawCount
+    );
+    console.log("Tie game! Play again.");
+  } else console.log("Something went wrong. Play again.");
+}
 
-//   if (playerScore > cpuScore) {
-//     console.log(
-//       "CPU Score: " + cpuScore + " || " + "Player Score: " + playerScore
-//     );
-//     console.log("Player Wins The Game!");
-//   } else if (cpuScore > playerScore) {
-//     console.log(
-//       "Player Score: " + playerScore + " || " + "CPU Score: " + cpuScore
-//     );
-//     console.log("CPU Wins The Game.");
-//   } else if (playerScore >= 1 && playerScore === cpuScore) {
-//     console.log(
-//       "Player Score: " +
-//         playerScore +
-//         " || " +
-//         "CPU Score: " +
-//         cpuScore +
-//         " ||  Number of Draws: " +
-//         drawCount
-//     );
-//     console.log("Tie game! Play again.");
-//   } else console.log("Something went wrong. Play again.");
-// }
-
-// game();
+game();
