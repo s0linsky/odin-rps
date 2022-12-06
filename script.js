@@ -5,34 +5,23 @@ const container = document.querySelector("#container");
 const startDiv = document.createElement("div");
 const startBtn = document.createElement("button");
 startBtn.id = "show";
+startBtn.classList.add("startButton");
 startBtn.textContent = "START GAME";
 startDiv.appendChild(startBtn);
 container.appendChild(startDiv);
 
-// Create button click event handler
-let selection;
-const buttons = document.querySelectorAll("button");
-// Create btnHandler function
-function btnHandler() {
-  for (let i = 0; i < buttons.length; i++) {
-    if (i.classList = "choice") {
-      console.log("test");
-    }
+function listenForButtonClicks() {
+  // Get all buttons on the page
+  var buttons = document.getElementsByTagName("button");
+
+  // Loop through the buttons and add a click event listener to each one
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function (event) {
+      // When a button is clicked, log the id of the button to the console
+      console.log(event.target.id);
+    });
   }
 }
-// Checks the buttons id
-function checkId() {
-  selection = t
-  console.log(selection)
-}
-
-// Create all button event listener
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    btnHandler();
-  });
-});
-
 
 // Hide the start button after clicing it
 function toggleStart() {
@@ -48,41 +37,45 @@ function createChoices() {
 
   // Create rock div
   const rock = document.createElement("div");
-  rock.classList.add("choice");
   const rockBtn = document.createElement("button");
-  rockBtn.id = "rock";
   rockBtn.textContent = "ROCK";
+  rockBtn.classList.add = "choice";
+  rockBtn.id = "rock";
+  rockBtn.addEventListener("click", () => {
+    game();
+  });
   rock.appendChild(rockBtn);
   choices.appendChild(rock);
 
   // Create paper div
   const paper = document.createElement("div");
-  paper.classList.add("choice");
   const paperBtn = document.createElement("button");
-  paperBtn.id = "paper";
   paperBtn.textContent = "PAPER";
+  paperBtn.classList.add("choice");
+  paperBtn.id = "paper";
+  paperBtn.addEventListener("click", () => {
+    game();
+  });
   paper.appendChild(paperBtn);
   choices.appendChild(paper);
 
   // Create scissors div
   const scissors = document.createElement("div");
-  scissors.classList.add("choice");
   const scissorsBtn = document.createElement("button");
-  scissorsBtn.id = "scissors";
   scissorsBtn.textContent = "SCISSORS";
+  scissorsBtn.classList.add("choice");
+  scissorsBtn.id = "scissors";
+  scissorsBtn.addEventListener("click", () => {
+    game();
+  });
   scissors.appendChild(scissorsBtn);
   choices.appendChild(scissors);
 
   // Append choices to container
   container.appendChild(choices);
-}
 
-// // Create start button event listener
-const startId = document.querySelector("#show");
-startId.addEventListener("click", () => {
-  toggleStart();
-  createChoices();
-});
+  listenForButtonClicks();
+}
 
 // A function that returns an integer between the minimum of 1 and the defined maximum
 function getComputerChoice() {
@@ -108,10 +101,6 @@ function getComputerChoice() {
 // Play a single round between the player's choice and the computer's choice
 // Return the results of the round
 function playRound(cpuChoice) {
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", btnHandler);
-  });
   let userChoice = selection;
   const userChoiceCap =
     userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
@@ -154,6 +143,13 @@ function scoreBoard() {
   scoreBox.style.color = "white";
   scoreBox.appendChild(score);
 }
+
+// // Create start button event listener
+const startId = document.querySelector("#show");
+startId.addEventListener("click", () => {
+  toggleStart();
+  createChoices();
+});
 
 // Play a game consisting of 5 rounds, most victories after 5 rounds wins the game
 // If there is a draw, move on to the next round
