@@ -1,7 +1,70 @@
-.hide {
-    visibility: hidden;
+* {
+  margin: 8px;
+  padding: 8px;
+}
+
+body {
+  background-color: rgb(34, 33, 33);
+}
+
+button {
+    background-color: rgb(187, 190, 147);
+    border-radius: 8px;
+    border: none;
 }
 
 #show {
-    display: block;
+  display: block;
 }
+
+.hide {
+  visibility: hidden;
+}
+
+.start {
+  height: 80px;
+  width: 250px;
+  font-size: 20px;
+  position: absolute;
+  bottom: 500px;
+}
+
+.reset {
+    position: absolute;
+    bottom: 300px;
+}
+
+.choices {
+  position: absolute;
+  top: 230px;
+  padding: 10px;
+
+}
+
+.choice {
+    width: 90px;
+    font-size: 15px;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 450px;
+  background-color: rgb(187, 190, 147);
+  color: rgb(69, 61, 61);
+  border-radius: 10px;
+  position: absolute;
+  top: 300px;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
