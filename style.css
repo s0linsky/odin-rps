@@ -8,9 +8,9 @@ body {
 }
 
 button {
-    background-color: rgb(187, 190, 147);
-    border-radius: 8px;
-    border: none;
+  background-color: rgb(187, 190, 147);
+  border-radius: 8px;
+  border: none;
 }
 
 #show {
@@ -30,22 +30,22 @@ button {
 }
 
 .reset {
-    position: absolute;
-    bottom: 400px;
-    width: 100px;
-    height: 40px;
+  position: absolute;
+  bottom: 300px;
+  width: 100px;
+  height: 40px;
+  z-index: 9999;
 }
 
 .choices {
   position: absolute;
   top: 150px;
   padding: 10px;
-
 }
 
 .choice {
-    width: 90px;
-    font-size: 15px;
+  width: 90px;
+  font-size: 15px;
 }
 
 #board {
@@ -60,7 +60,6 @@ button {
   border-radius: 10px;
   position: absolute;
   top: 300px;
-  
 }
 
 .container {
@@ -69,4 +68,3 @@ button {
   justify-content: center;
   align-items: center;
 }
-
