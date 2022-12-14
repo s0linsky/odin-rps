@@ -26,12 +26,12 @@ button {
   width: 250px;
   font-size: 20px;
   position: absolute;
-  bottom: 600px;
+  bottom: 500px;
 }
 
 .reset {
     position: absolute;
-    bottom: 300px;
+    bottom: 400px;
     width: 100px;
     height: 40px;
 }
