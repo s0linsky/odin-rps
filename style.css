@@ -32,11 +32,13 @@ button {
 .reset {
     position: absolute;
     bottom: 300px;
+    width: 100px;
+    height: 40px;
 }
 
 .choices {
   position: absolute;
-  top: 230px;
+  top: 150px;
   padding: 10px;
 
 }

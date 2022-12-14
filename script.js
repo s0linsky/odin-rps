@@ -42,7 +42,7 @@ startId.addEventListener("click", () => {
   createReset();
 });
 
-// Toggle start button
+// Toggle show/hide start button
 function toggleStart() {
   let show = document.getElementById("show");
   show.classList.toggle("hide");
@@ -63,34 +63,40 @@ function createChoices() {
   btnChoices.classList.add("choices");
 
   // Create rock button
-  const rockBtn = document.createElement("button");
-  rockBtn.textContent = "ROCK";
+  const rockAnchor = document.createElement("a");
+  const rockBtn = document.createElement("img");
+  rockBtn.setAttribute("src", "./imgs/rock.png");
   rockBtn.id = "rock";
   rockBtn.classList.add("choice");
   rockBtn.addEventListener("click", (e) => {
     playRound(e);
   });
-  btnChoices.appendChild(rockBtn);
+  rockAnchor.appendChild(rockBtn);
+  btnChoices.appendChild(rockAnchor);
 
   // Create paper button
-  const paperBtn = document.createElement("button");
-  paperBtn.textContent = "PAPER";
+  const paperAnchor = document.createElement("a");
+  const paperBtn = document.createElement("img");
+  paperBtn.setAttribute("src", "./imgs/Paper.png");
   paperBtn.id = "paper";
   paperBtn.classList.add("choice");
   paperBtn.addEventListener("click", (e) => {
     playRound(e);
   });
-  btnChoices.appendChild(paperBtn);
+  paperAnchor.appendChild(paperBtn);
+  btnChoices.appendChild(paperAnchor);
 
   // Create scissors button
-  const scissorsBtn = document.createElement("button");
-  scissorsBtn.textContent = "SCISSORS";
+  const scissorsAnchor = document.createElement("a");
+  const scissorsBtn = document.createElement("img");
+  scissorsBtn.setAttribute("src", "./imgs/Scissors.png");
   scissorsBtn.id = "scissors";
   scissorsBtn.classList.add("choice");
   scissorsBtn.addEventListener("click", (e) => {
     playRound(e);
   });
-  btnChoices.appendChild(scissorsBtn);
+  scissorsAnchor.appendChild(scissorsBtn);
+  btnChoices.appendChild(scissorsAnchor);
 
   // Append btnChoices to container
   container.appendChild(btnChoices);
@@ -169,7 +175,7 @@ function playRound(e) {
     cpuScore++;
     roundDescription = "Scissors beats Paper.. CPU won the round.";
     if (cpuScore === 5) {
-      checkForWinner(cpuScore);ateSc
+      checkForWinner(cpuScore);
     }
     scoreUpdater(roundDescription);
     return cpuScore;
